@@ -120,15 +120,22 @@ add_action( 'widgets_init', 'sex_angel_widgets_init' );
  * Enqueue scripts and styles.
  */
 function sex_angel_scripts() {
+
+	wp_enqueue_style( 'bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), null );
+	
 	wp_enqueue_style( 'sex_angel-style', get_stylesheet_uri() );
-
+	
 	wp_enqueue_style( 'sex_angel-c-style', get_template_directory_uri() . '/css/christophe.css' );
-
+	
 	wp_enqueue_style( 'sex_angel-j-style', get_template_directory_uri() . '/css/jeremie.css' );
-
+	
 	wp_enqueue_style( 'sex_angel-m-style', get_template_directory_uri() . '/css/mathieu.css' );
-
+	
 	wp_enqueue_style( 'sex_angel-t-style', get_template_directory_uri() . '/css/thomas.css' );
+
+	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'), null, true);
+
+	wp_enqueue_script( 'font-awsome', 'https://use.fontawesome.com/releases/v5.8.1/js/all.js', array(), null, true);
 
 	wp_enqueue_script( 'sex_angel-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -139,6 +146,31 @@ function sex_angel_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sex_angel_scripts' );
+
+/**
+ * Add cdn attributes for styles
+ */
+function add_css_cdn_attributes( $html, $handle ) {
+    if ( 'bootstrap-css' === $handle ) {
+        return str_replace( "media='all'", "media='all' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous'", $html );
+    }
+    return $html;
+}
+add_filter( 'style_loader_tag', 'add_css_cdn_attributes', 10, 2 );
+
+/**
+ * Add cdn attributes for scripts
+ */
+function add_js_cdn_attributes( $html, $handle ) {
+    if ( 'bootstrap-js' === $handle ) {
+        return str_replace( "type='text/javascript'", "integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous'", $html );
+    }
+    if ( 'font-awsome' === $handle ) {
+        return str_replace( "type='text/javascript'", "defer integrity='sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ' crossorigin='anonymous'", $html );
+    }
+    return $html;
+}
+add_filter( 'script_loader_tag', 'add_js_cdn_attributes', 10, 2 );
 
 /**
  * Implement the Custom Header feature.
