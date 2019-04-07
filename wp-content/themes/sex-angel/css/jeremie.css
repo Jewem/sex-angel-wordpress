@@ -8,8 +8,9 @@ General
     margin: 0;
 }
 
+a,
 a:visited {
-    color: inherit;
+    color: black;
 }
 
 .wp-block-button a:hover {
