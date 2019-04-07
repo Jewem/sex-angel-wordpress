@@ -125,13 +125,13 @@ function sex_angel_scripts() {
 	
 	wp_enqueue_style( 'sex_angel-style', get_stylesheet_uri() );
 	
-	wp_enqueue_style( 'sex_angel-c-style', get_template_directory_uri() . '/css/christophe.css' );
+	// wp_enqueue_style( 'sex_angel-c-style', get_template_directory_uri() . '/css/christophe.css' );
 	
 	wp_enqueue_style( 'sex_angel-j-style', get_template_directory_uri() . '/css/jeremie.css' );
 	
-	wp_enqueue_style( 'sex_angel-m-style', get_template_directory_uri() . '/css/mathieu.css' );
+	// wp_enqueue_style( 'sex_angel-m-style', get_template_directory_uri() . '/css/mathieu.css' );
 	
-	wp_enqueue_style( 'sex_angel-t-style', get_template_directory_uri() . '/css/thomas.css' );
+	// wp_enqueue_style( 'sex_angel-t-style', get_template_directory_uri() . '/css/thomas.css' );
 
 	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'), null, true);
 
@@ -171,6 +171,17 @@ function add_js_cdn_attributes( $html, $handle ) {
     return $html;
 }
 add_filter( 'script_loader_tag', 'add_js_cdn_attributes', 10, 2 );
+
+/**
+ * Add class to the logo
+ */
+function change_logo_class( $html ) {
+	
+	$html = str_replace( 'custom-logo', 'custom-logo mx-auto d-block', $html );
+	
+    return $html;
+}
+add_filter( 'get_custom_logo', 'change_logo_class' );
 
 /**
  * Implement the Custom Header feature.
