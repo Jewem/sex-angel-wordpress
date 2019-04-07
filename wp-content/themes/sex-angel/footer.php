@@ -13,18 +13,18 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
+	<footer id="colophon" class="site-footer container">
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'sex_angel' ) ); ?>">
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'sex_angel' ), 'WordPress' );
+				printf( esc_html__( 'Conditions générales', 'sex_angel' ));
 				?>
 			</a>
-			<span class="sep"> | </span>
+			<!-- <span class="sep"> | </span> -->
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'sex_angel' ), 'sex_angel', '<a href="http://underscores.me/">VIHACK TEAM</a>' );
+				// printf( esc_html__( 'Theme: %1$s by %2$s.', 'sex_angel' ), 'sex_angel', '<a href="http://underscores.me/">VIHACK TEAM</a>' );
 				?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
