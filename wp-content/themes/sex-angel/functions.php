@@ -121,9 +121,9 @@ add_action( 'widgets_init', 'sex_angel_widgets_init' );
  */
 function sex_angel_scripts() {
 
-	wp_enqueue_style( 'bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), null );
-	
 	wp_enqueue_style( 'sex_angel-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', array(), null );
 	
 	// wp_enqueue_style( 'sex_angel-c-style', get_template_directory_uri() . '/css/christophe.css' );
 	

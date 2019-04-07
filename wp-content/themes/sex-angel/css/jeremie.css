@@ -3,6 +3,7 @@
 General
 --------------------------------------------------------------------------
 \*/
+
 .page {
     margin: 0;
 }
@@ -20,6 +21,7 @@ a:visited {
 Header
 --------------------------------------------------------------------------
 \*/
+
 .site-header {
     background-color: red;
 }
@@ -29,6 +31,7 @@ Header
 Footer
 --------------------------------------------------------------------------
 \*/
+
 .site-footer {
     background-color: red;
 }
@@ -90,4 +93,49 @@ Homepage
 .btn-risks .wp-block-button__link span {
     margin-right: 5vw;
     margin-left: 15px;
+}
+
+/*\
+--------------------------------------------------------------------------
+Media queries
+--------------------------------------------------------------------------
+\*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+    .btn-risks .wp-block-button__link {
+        display: block;
+        text-align: center;
+    }
+
+    .btn-risks .wp-block-button__link img {
+        margin: 0.5em auto;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .wp-block-column {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    }
+
+    .wp-block-column:not(:last-child),
+    .wp-block-column:nth-child(odd) {
+        margin-right: 0;
+    }
+
+    .wp-block-column:not(:first-child),
+    .wp-block-column:nth-child(2n) {
+        margin-left: 0;
+    }
+}
+
+/* All portable devices */
+@media (max-width: 1200px) {
+
+    .site-header.container,
+    .site-footer.container {
+        max-width: 100%;
+    }
 }
